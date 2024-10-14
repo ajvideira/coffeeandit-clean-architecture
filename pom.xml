@@ -42,9 +42,7 @@
         <sonar.exclusions>
             **/src/test/**/*,&#10;
             **/src/main/java/br/com/ajvideira/cleanarchitecture/CleanarchitectureApplication.java,&#10;
-            **/src/main/java/br/com/ajvideira/cleanarchitecture/domain/model/**/*,&#10;
-            **/src/main/java/br/com/ajvideira/cleanarchitecture/domain/exception/**/*,&#10;
-            **/src/main/java/br/com/ajvideira/cleanarchitecture/api/model/**/*
+            **/src/main/java/br/com/ajvideira/cleanarchitecture/adapter/dto/**/*
         </sonar.exclusions>
     </properties>
     <dependencies>
