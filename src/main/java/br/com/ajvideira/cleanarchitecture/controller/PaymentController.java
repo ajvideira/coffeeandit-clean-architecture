@@ -17,19 +17,19 @@ public class PaymentController implements IPaymentController<ResponseEntity<Paym
 
     @DeleteMapping("/{id}")
     @Override
-    public ResponseEntity<PaymentDto> deletePayment(String id) {
+    public ResponseEntity<PaymentDto> deletePayment(@PathVariable String id) {
         return null;
     }
 
     @PatchMapping("/{id}")
     @Override
-    public ResponseEntity<PaymentDto> approvePayment(String id) {
+    public ResponseEntity<PaymentDto> approvePayment(@PathVariable String id) {
         return null;
     }
 
     @GetMapping("/{id}")
     @Override
-    public ResponseEntity<PaymentDto> findById(String id) {
+    public ResponseEntity<PaymentDto> findById(@PathVariable String id) {
         return null;
     }
 
