@@ -28,6 +28,24 @@
     </scm>
     <properties>
         <java.version>21</java.version>
+
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.projectKey>clean-architecture</sonar.projectKey>
+        <sonar.projectName>Clean Architecture</sonar.projectName>
+        <sonar.projectVersion>1.0</sonar.projectVersion>
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+        <sonar.sources>src/main/java</sonar.sources>
+        <sonar.tests>src/test/java</sonar.tests>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.jacoco.xmlReportPaths>
+        <sonar.exclusions>
+            **/src/test/**/*,&#10;
+            **/src/main/java/br/com/ajvideira/cleanarchitecture/CleanarchitectureApplication.java,&#10;
+            **/src/main/java/br/com/ajvideira/cleanarchitecture/domain/model/**/*,&#10;
+            **/src/main/java/br/com/ajvideira/cleanarchitecture/domain/exception/**/*,&#10;
+            **/src/main/java/br/com/ajvideira/cleanarchitecture/api/model/**/*
+        </sonar.exclusions>
     </properties>
     <dependencies>
         <dependency>
@@ -71,6 +89,33 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version> <!-- Use the latest version available -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- Attach the JaCoCo lifecycle to the Maven test phase -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
